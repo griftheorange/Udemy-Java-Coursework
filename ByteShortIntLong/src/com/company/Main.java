@@ -41,5 +41,14 @@ public class Main {
         System.out.println(myNewIntValue);
         System.out.println(myNewByteValue);
         System.out.println(myNewShortValue);
+
+        System.out.println();
+        System.out.println("Primitive Types Challenge:");
+        //Primitive Types Challenge
+        byte myByte = 10;
+        short myShort = 20;
+        int myInt = 50;
+        long myDerivedLong = 50000L + (10L * (myByte + myShort + myInt));
+        System.out.println(myDerivedLong);
     }
 }
