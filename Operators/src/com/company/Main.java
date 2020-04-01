@@ -40,6 +40,19 @@ public class Main {
 
         result -= 2;
         System.out.println("10 - 2 = " + result);
-        
+
+        //Conditional Operations
+        //If-Then
+        boolean isAlien = false;
+        if (isAlien == false) {
+            System.out.println("It is not an alien!");
+            System.out.println("And I am scared of aliens!");
+        }
+        if (isAlien == true) {
+            System.out.println("It is an alien!");
+            System.out.println("And I am scared of aliens!");
+        }
+
+
     }
 }
