@@ -84,5 +84,18 @@ public class Main {
         if(wasCar){
             System.out.println("wasCar is true");
         }
+
+        //Challenge
+
+        double first = 20d;
+        double second = 80d;
+        double third = (first + second) * 100d;
+        double remainder = third % 40d;
+        boolean isZero = (remainder == 0);
+        System.out.println(isZero);
+        if (!isZero){
+            System.out.println("Got some remainder");
+        }
+
     }
 }
