@@ -52,7 +52,7 @@ public class Main {
             position = 1;
         } else if(score >= 500){
             position =  2;
-        } else if(score >= 100) {
+        } else if(score >= 100){
             position = 3;
         }
         return position;
