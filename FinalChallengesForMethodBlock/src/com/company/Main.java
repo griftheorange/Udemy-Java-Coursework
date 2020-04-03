@@ -11,5 +11,10 @@ public class Main {
         MinutesToYearsDaysCalculator.printYearsAndDays(525600);
         MinutesToYearsDaysCalculator.printYearsAndDays(1051200);
         MinutesToYearsDaysCalculator.printYearsAndDays(561600);
+        //Equal Printer
+        EqualityPrinter.printEqual(1, 1, 1);
+        EqualityPrinter.printEqual(1, 1, 2);
+        EqualityPrinter.printEqual(-1, -1, -1);
+        EqualityPrinter.printEqual(1, 2, 3);
     }
 }
