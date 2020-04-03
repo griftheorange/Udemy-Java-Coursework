@@ -2,9 +2,12 @@ package com.company;
 
 public class Main {
 
+    private static final String INVALID_VALUE_MESSAGE = "Invalid Value";
+
     public static void main(String[] args) {
         System.out.println(getDurationString(85, 90));
         System.out.println(getDurationString(90 + 85*60));
+        System.out.println(getDurationString(-23));
     }
 
     public static String getDurationString(int minutes, int seconds){
@@ -20,7 +23,7 @@ public class Main {
             }
             return String.format("%1$sh %2$sm %3$ss", hours, minutes, seconds);
         } else {
-            return "Invalid Value";
+            return INVALID_VALUE_MESSAGE;
         }
     }
 
@@ -34,7 +37,7 @@ public class Main {
             }
             return getDurationString(minutes, seconds);
         } else {
-            return "Invalid Value";
+            return INVALID_VALUE_MESSAGE;
         }
     }
 }
