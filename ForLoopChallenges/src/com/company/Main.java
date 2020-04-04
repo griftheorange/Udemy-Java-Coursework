@@ -16,5 +16,13 @@ public class Main {
             if(count >= 5){break;}
         }
         System.out.println(runningSum);
+
+        //Sum odd challenge
+        System.out.println(SumOddRange.sumOdd(1, 100));
+        System.out.println(SumOddRange.sumOdd(-1, 100));
+        System.out.println(SumOddRange.sumOdd(100, 100));
+        System.out.println(SumOddRange.sumOdd(13, 13));
+        System.out.println(SumOddRange.sumOdd(100, -100));
+        System.out.println(SumOddRange.sumOdd(100, 1000));
     }
 }
