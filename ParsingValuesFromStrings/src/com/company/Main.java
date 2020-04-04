@@ -32,5 +32,13 @@ public class Main {
         System.out.println(LargestPrime.getLargestPrime(0));
         System.out.println(LargestPrime.getLargestPrime(45));
         System.out.println(LargestPrime.getLargestPrime(-1));
+
+        System.out.println();
+
+        //Diagonal Star
+        DiagonalStar.printSquareStar(8);
+        DiagonalStar.printSquareStar(5);
+        DiagonalStar.printSquareStar(20);
+        DiagonalStar.printSquareStar(13);
     }
 }
