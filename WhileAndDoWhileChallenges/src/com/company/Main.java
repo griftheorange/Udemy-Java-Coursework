@@ -8,5 +8,11 @@ public class Main {
         System.out.println(NumberPalindrome.isPalindrome(-1221));
         System.out.println(NumberPalindrome.isPalindrome(707));
         System.out.println(NumberPalindrome.isPalindrome(11212));
+
+        System.out.println(FirstLastDigitSum.sumFirstAndLastDigit(252));
+        System.out.println(FirstLastDigitSum.sumFirstAndLastDigit(257));
+        System.out.println(FirstLastDigitSum.sumFirstAndLastDigit(0));
+        System.out.println(FirstLastDigitSum.sumFirstAndLastDigit(5));
+        System.out.println(FirstLastDigitSum.sumFirstAndLastDigit(-10));
     }
 }
