@@ -25,10 +25,19 @@ public class Main {
         System.out.println(EvenDigitSum.getEvenDigitSum(252));
         System.out.println(EvenDigitSum.getEvenDigitSum(-22));
 
+        System.out.println();
+
         //hasSameLastDigit
         System.out.println(LastDigitChecker.hasSameLastDigit(41, 22, 71));
         System.out.println(LastDigitChecker.hasSameLastDigit(23, 32, 42));
         System.out.println(LastDigitChecker.hasSameLastDigit(9, 99, 999));
 
+        System.out.println();
+
+        //greatestCommonDivisor
+        System.out.println(GreatestCommonDivisor.getGreatestCommonDivisor(25, 15));
+        System.out.println(GreatestCommonDivisor.getGreatestCommonDivisor(12, 30));
+        System.out.println(GreatestCommonDivisor.getGreatestCommonDivisor(9, 18));
+        System.out.println(GreatestCommonDivisor.getGreatestCommonDivisor(81, 153));
     }
 }
