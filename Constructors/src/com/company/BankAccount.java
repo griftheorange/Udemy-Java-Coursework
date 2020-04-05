@@ -19,6 +19,10 @@ public class BankAccount {
         this.phoneNumber = phoneNumber;
     }
 
+    public BankAccount(String customerName, String email, String phoneNumber){
+        this("99999", 100.5, customerName, email, phoneNumber);
+    }
+
     public void deposit(double amount){
         this.balance += amount;
         System.out.println(String.format("Deposit of %1$s made, balance is now %2$s", amount, this.balance));
