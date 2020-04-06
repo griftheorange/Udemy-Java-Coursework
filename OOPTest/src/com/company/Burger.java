@@ -50,7 +50,7 @@ public class Burger {
         double hamburgerPrice = this.price;
         System.out.println(this.name + " hamburger on a " + this.rollType + " roll price is " + this.price);
         if(this.addition1Name != null){
-            
+
         }
     }
 }
