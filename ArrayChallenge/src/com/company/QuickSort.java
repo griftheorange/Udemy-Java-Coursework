@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Arrays;
+
 public class QuickSort {
     public static void quickSortArray(int[] arr, int start, int end){
         if(start < end){
@@ -41,12 +43,6 @@ public class QuickSort {
     }
 
     public static void printArray(int[] arr){
-        System.out.print("[");
-        for(int i = 0; i < arr.length-1; i++){
-            System.out.print(arr[i] + ", ");
-        }
-        System.out.print(arr[arr.length-1]);
-        System.out.print("]");
-        System.out.println();
+        System.out.println(Arrays.toString(arr));
     }
 }
