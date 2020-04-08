@@ -9,6 +9,10 @@ public class Contact {
         this.phoneNumber = phoneNumber;
     }
 
+    public String contactToString(){
+        return String.format("%1$s: %2$s", this.name, this.phoneNumber);
+    }
+
     public String getName() {
         return name;
     }

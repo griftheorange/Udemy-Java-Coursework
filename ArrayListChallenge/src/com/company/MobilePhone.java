@@ -9,17 +9,12 @@ public class MobilePhone {
         this.contacts = new ArrayList<Contact>();
     }
 
-    public int printOptions(){
+    public void printContacts(){
         System.out.println();
-        System.out.println("Enter Option:");
-        System.out.println("1. Quit");
-        System.out.println("2. Print Contacts");
-        System.out.println("3. Add Contact");
-        System.out.println("4. Update Contact");
-        System.out.println("5. Remove Contact");
-        System.out.println("6. Search for Contact");
-        System.out.println();
-        return 6;
+        System.out.println("Contacts:");
+        for(int i = 0; i < this.contacts.size(); i++){
+            System.out.println(String.format("%1$s. %2$s", i+1, this.contacts.get(i).contactToString()));;
+        }
     }
 
     public ArrayList<Contact> getContacts() {

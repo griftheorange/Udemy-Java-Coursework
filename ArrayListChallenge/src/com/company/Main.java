@@ -13,7 +13,7 @@ public class Main {
         System.out.println("Please select an option:");
         while(true){
             int selected = 0;
-            int total = phone.printOptions();
+            int total = printOptions();
             while(true){
                 while((!scanner.hasNextInt())){
                     System.out.println("Please input an integer.");
@@ -31,9 +31,35 @@ public class Main {
             switch(selected){
                 case 1:
                     return;
+                case 2:
+                    phone.printContacts();
+                    break;
+                case 3:
+                    //phone.addContact();
+                    break;
+                case 4:
+                    //phone.updateContact();
+                case 5:
+                    //phone.removeContact();
+                case 6:
+                    //phone.searchForContact();
+
             }
 
 
         }
+    }
+
+    public static int printOptions(){
+        System.out.println();
+        System.out.println("Enter Option:");
+        System.out.println("1. Quit");
+        System.out.println("2. Print Contacts");
+        System.out.println("3. Add Contact");
+        System.out.println("4. Update Contact");
+        System.out.println("5. Remove Contact");
+        System.out.println("6. Search for Contact");
+        System.out.println();
+        return 6;
     }
 }
