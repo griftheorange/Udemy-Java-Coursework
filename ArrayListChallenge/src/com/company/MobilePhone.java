@@ -36,6 +36,29 @@ public class MobilePhone {
         }
     }
 
+    public void updateContactPrompt(Scanner scanner){
+        System.out.println("Enter the name of the contact you'd like to update:");
+        String name = scanner.nextLine();
+        Contact contact = findContact(name);
+        if(contact != null){
+            System.out.println("Now you will enter the new name and number.");
+            System.out.println("Enter the new name:");
+            name = scanner.nextLine();
+            System.out.println("Enter the new number:");
+            String num = scanner.nextLine();
+            System.out.print(String.format("Contact %1$s:%2$s has been changed to: ", contact.getName(), contact.getPhoneNumber()));
+            updateContact(contact,name,num);
+            System.out.println(String.format("%1$s:%2$s", name, num));
+        } else {
+            System.out.println(String.format("There is no contact with the name %s", name));
+        }
+    }
+
+    public void updateContact(Contact contact, String name, String number){
+        contact.setName(name);
+        contact.setPhoneNumber(number);
+    }
+
     public Contact findContact(String name){
         for(int i = 0; i < this.contacts.size(); i++){
             if(name.equals(this.contacts.get(i).getName())){

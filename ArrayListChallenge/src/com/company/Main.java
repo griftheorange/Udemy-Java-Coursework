@@ -38,7 +38,7 @@ public class Main {
                     phone.addContactPrompt(scanner);
                     break;
                 case 4:
-                    //phone.updateContact();
+                    phone.updateContactPrompt(scanner);
                 case 5:
                     //phone.removeContact();
                 case 6:
