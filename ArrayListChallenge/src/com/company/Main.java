@@ -35,7 +35,7 @@ public class Main {
                     phone.printContacts();
                     break;
                 case 3:
-                    //phone.addContact();
+                    phone.addContactPrompt(scanner);
                     break;
                 case 4:
                     //phone.updateContact();
