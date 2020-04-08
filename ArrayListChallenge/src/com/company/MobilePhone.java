@@ -42,8 +42,13 @@ public class MobilePhone {
         Contact contact = findContact(name);
         if(contact != null){
             System.out.println("Now you will enter the new name and number.");
-            System.out.println("Enter the new name:");
-            name = scanner.nextLine();
+            while(true){
+                System.out.println("Enter the new name:");
+                name = scanner.nextLine();
+                if(findContact(name) == null){
+                    break;
+                }
+            }
             System.out.println("Enter the new number:");
             String num = scanner.nextLine();
             System.out.print(String.format("Contact %1$s:%2$s has been changed to: ", contact.getName(), contact.getPhoneNumber()));

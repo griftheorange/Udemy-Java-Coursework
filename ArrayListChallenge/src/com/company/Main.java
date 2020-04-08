@@ -39,10 +39,14 @@ public class Main {
                     break;
                 case 4:
                     phone.updateContactPrompt(scanner);
+                    break;
                 case 5:
                     phone.removeContactPrompt(scanner);
+                    break;
                 case 6:
                     phone.searchForContact(scanner);
+                    break;
+
 
             }
 
