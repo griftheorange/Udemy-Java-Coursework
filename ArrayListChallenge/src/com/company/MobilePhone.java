@@ -59,6 +59,32 @@ public class MobilePhone {
         contact.setPhoneNumber(number);
     }
 
+    public void removeContactPrompt(Scanner scanner){
+        System.out.println("Enter the name of the contact you want removed:");
+        String name = scanner.nextLine();
+        for(int i = 0; i < this.contacts.size(); i++){
+            if(this.contacts.get(i).getName().equals(name)){
+                System.out.println(String.format("%s has been removed from contacts", this.contacts.get(i).getName()));
+                removeContact(this.contacts.get(i));
+            }
+        }
+    }
+
+    public void removeContact(Contact contact){
+        this.contacts.remove(contact);
+    }
+
+    public void searchForContact(Scanner scanner){
+        System.out.println("Enter the name to search:");
+        String name = scanner.nextLine();
+        Contact cont = findContact(name);
+        if(cont != null){
+            System.out.println(String.format("%1$s:%2$s was found", cont.getName(), cont.getPhoneNumber()));
+        } else {
+            System.out.println(String.format("Could not find a %s", name));
+        }
+    }
+
     public Contact findContact(String name){
         for(int i = 0; i < this.contacts.size(); i++){
             if(name.equals(this.contacts.get(i).getName())){

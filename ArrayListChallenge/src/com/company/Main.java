@@ -40,9 +40,9 @@ public class Main {
                 case 4:
                     phone.updateContactPrompt(scanner);
                 case 5:
-                    //phone.removeContact();
+                    phone.removeContactPrompt(scanner);
                 case 6:
-                    //phone.searchForContact();
+                    phone.searchForContact(scanner);
 
             }
 
