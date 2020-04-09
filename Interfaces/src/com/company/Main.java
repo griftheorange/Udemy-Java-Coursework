@@ -9,5 +9,13 @@ public class Main {
 	    griffsPhone.powerOn();
 	    griffsPhone.callPhone(1234567);
 	    griffsPhone.answer();
+
+	    griffsPhone = new MobilePhone(23456);
+	    griffsPhone.callPhone(23456);
+		griffsPhone.answer();
+
+	    griffsPhone.powerOn();
+		griffsPhone.callPhone(23456);
+		griffsPhone.answer();
     }
 }
