@@ -1,6 +1,6 @@
 package com.company;
 
-public class ItemLinkedList {
+public class ItemLinkedList implements NodeList{
     private ListItem head;
 
     public void printList(){
@@ -17,7 +17,8 @@ public class ItemLinkedList {
         }
     }
 
-    public void add(Item item){
+    @Override
+    public void addItem(ListItem item){
         if(head == null){
             head = item;
         } else {
@@ -44,7 +45,8 @@ public class ItemLinkedList {
         }
     }
 
-    public void remove(ListItem item){
+    @Override
+    public void removeItem(ListItem item){
         if(head != null){
             ListItem current = head;
             while(current != null){

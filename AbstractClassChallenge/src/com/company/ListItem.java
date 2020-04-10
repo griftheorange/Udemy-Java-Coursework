@@ -23,7 +23,7 @@ public abstract class ListItem {
         return itemName;
     }
 
-    public void setItemName(String itemName) {
+    public void setItemName(Object itemName) {
         this.itemName = itemName;
     }
 }
