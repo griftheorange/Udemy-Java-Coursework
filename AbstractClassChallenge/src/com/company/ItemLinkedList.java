@@ -23,7 +23,6 @@ public class ItemLinkedList {
         } else {
             ListItem current = head;
             while(true){
-                System.out.println(current.getItemName());
                 if(item.compareTo(current) <= 0){
                     item.setRight(current);
                     if(current.getLeft() != null){
@@ -45,22 +44,27 @@ public class ItemLinkedList {
         }
     }
 
-    public void remove(String name){
+    public void remove(ListItem item){
         if(head != null){
             ListItem current = head;
             while(current != null){
-                if(current.getItemName().compareTo(name) == 0){
+                if(current.compareTo(item) == 0){
+                    System.out.println("Found match");
                     if((current.getLeft() != null) && (current.getRight() != null)){
-                        current.getLeft().setRight(current.getRight());
-                        current.getRight().setLeft(current.getLeft());
+                        ListItem left = current.getLeft();
+                        ListItem right = current.getRight();
+                        current.getLeft().setRight(right);
+                        current.getRight().setLeft(left);
                         break;
                     } else if(current.getLeft() != null){
                         current.getLeft().setRight(null);
                         break;
                     } else {
                         head = head.getRight();
+                        break;
                     }
                 }
+                current = current.getRight();
             }
         }
     }

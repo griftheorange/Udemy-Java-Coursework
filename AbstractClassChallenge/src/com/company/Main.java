@@ -16,7 +16,6 @@ public class Main {
         linkList.add(new Item("Wine"));
         System.out.println();
 
-
         linkList.printList();
         System.out.println();
 
@@ -28,6 +27,23 @@ public class Main {
         System.out.println();
 
         linkList.printList();
+        System.out.println();
+
+        linkList.remove(new Item("Apple"));
+        linkList.printList();
+        System.out.println();
+
+        linkList.remove(new Item("Wine"));
+        linkList.printList();
+        System.out.println();
+
+        linkList.remove(new Item("Cheese"));
+        linkList.printList();
+        System.out.println();
+
+        linkList.remove(new Item("Cheese"));
+        linkList.printList();
+        System.out.println();
 
     }
 }
