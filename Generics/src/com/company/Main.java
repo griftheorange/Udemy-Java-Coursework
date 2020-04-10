@@ -23,6 +23,27 @@ public class Main {
 
         Team<SoccerPlayer> brokenTeam = new Team<>("this won't work");
         brokenTeam.addPlayer(beckham);
+
+        Team<FootballPlayer> melbourne = new Team<>("Melbourne");
+        FootballPlayer banks = new FootballPlayer("Gordon");
+        melbourne.addPlayer(banks);
+
+        Team<FootballPlayer> hawthorne = new Team<>("Hawthorne");
+        Team<FootballPlayer> fremantle = new Team<>("Fremantle");
+
+        hawthorne.matchResult(fremantle, 1, 0);
+        hawthorne.matchResult(adelaideCrows, 3, 8);
+        adelaideCrows.matchResult(fremantle, 2, 1);
+
+        System.out.println("Rankings");
+        System.out.println(adelaideCrows.getName() + ": " + adelaideCrows.ranking());
+        System.out.println(melbourne.getName() + ": " + melbourne.ranking());
+        System.out.println(fremantle.getName() + ": " + fremantle.ranking());
+        System.out.println(hawthorne.getName() + ": " + hawthorne.ranking());
+
+        System.out.println(adelaideCrows.compareTo(melbourne));
+        System.out.println(adelaideCrows.compareTo(hawthorne));
+        System.out.println(hawthorne.compareTo(adelaideCrows));
 //        ArrayList<Integer> items = new ArrayList<>();
 //        items.add(1);
 //        items.add(2);
