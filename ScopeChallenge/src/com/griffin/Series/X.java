@@ -7,6 +7,7 @@ public class X {
         this.x = x;
     }
 
+    //Could be called "timesTable". Initializes local scope int x as for loop iterator, refers to this.x for calculation
     public void x(){
         for(int x = 1; x < 13; x++){
             System.out.println(this.x * x);
