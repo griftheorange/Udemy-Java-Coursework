@@ -36,6 +36,7 @@ public class Main {
         tempExits = new HashMap<>();
         tempExits.put("S", 1);
         tempExits.put("W", 2);
+        tempExits.put("N", 6);
         locations.put(5, new Location(5, "You are in the forest", tempExits));
 
 
