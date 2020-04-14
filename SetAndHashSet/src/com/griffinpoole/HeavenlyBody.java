@@ -3,10 +3,15 @@ package com.griffinpoole;
 import java.util.HashSet;
 import java.util.Set;
 
-public final class HeavenlyBody {
+public abstract class HeavenlyBody {
     private final String name;
     private final double orbitalPeriod;
-    private final Set<HeavenlyBody> satellites;
+    private final Set<Moon> satellites;
+    private final int bodyType;
+
+    public enum BodyTypes {
+        
+    }
 
     public HeavenlyBody(String name, double orbitalPeriod) {
         this.name = name;
@@ -22,11 +27,11 @@ public final class HeavenlyBody {
         return orbitalPeriod;
     }
 
-    public boolean addMoon(HeavenlyBody moon){
+    public boolean addMoon(Moon moon){
         return satellites.add(moon);
     }
 
-    public Set<HeavenlyBody> getSatellites() {
+    public Set<Moon> getSatellites() {
         return new HashSet<>(satellites);
     }
 
@@ -37,8 +42,6 @@ public final class HeavenlyBody {
         if(this == obj){
             return true;
         }
-        System.out.println("obj.getClass() is " + obj.getClass());
-        System.out.println("this.getClass() is " + this.getClass());
         if(obj == null || obj.getClass() != this.getClass()){
             return false;
         }
@@ -49,7 +52,6 @@ public final class HeavenlyBody {
 
     @Override
     public int hashCode() {
-        System.out.println("hashCode has been called");
         return this.name.hashCode() + 57;
     }
 }
