@@ -1,13 +1,12 @@
 package com.griffinpoole;
 
 public final class Moon extends HeavenlyBody {
-    private String bodyType = "MOON";
-
     public Moon(String name, double orbitalPeriod) {
-        super(name, orbitalPeriod);
+        super(name, orbitalPeriod, BodyTypes.MOON);
     }
 
-    public String getBodyType() {
-        return bodyType;
+    @Override
+    public boolean addSatellite(HeavenlyBody satellite) {
+        return false;
     }
 }
