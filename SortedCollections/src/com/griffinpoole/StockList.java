@@ -1,14 +1,14 @@
 package com.griffinpoole;
 
 import java.util.Collections;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class StockList {
     private final Map<String, StockItem> list;
 
     public StockList() {
-        this.list = new HashMap<>();
+        this.list = new LinkedHashMap<>();
     }
 
     public int addStock(StockItem item){
@@ -37,7 +37,7 @@ public class StockList {
         return list.get(name);
     }
 
-    public Map<String, StockItem> items(){
+    public Map<String, StockItem> Items(){
         return Collections.unmodifiableMap(list);
     }
 
@@ -50,9 +50,9 @@ public class StockList {
             StockItem stockItem = item.getValue();
             double itemValue = stockItem.getPrice() * stockItem.quantityInStock();
             s = s + stockItem + ". There are " + stockItem.quantityInStock() + " in stock. Value of items: ";
-            s = s + itemValue + "\n";
+            s = s + String.format("%.2f",itemValue) + "\n";
             totalCost += itemValue;
         }
-        return s + "Total stock valueL " + totalCost;
+        return s + "Total stock value " + String.format("%.2f", totalCost);
     }
 }
