@@ -1,9 +1,8 @@
 package com.griffinpoole;
 
-public final class Planet extends HeavenlyBody {
-
-    public Planet(String name, double orbitalPeriod) {
-        super(name, orbitalPeriod, BodyTypes.PLANET);
+public class DwarfPlanet extends HeavenlyBody{
+    public DwarfPlanet(String name, double orbitalPeriod) {
+        super(name, orbitalPeriod, BodyTypes.DWARF_PLANET);
     }
 
     @Override

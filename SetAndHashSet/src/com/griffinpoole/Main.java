@@ -40,7 +40,7 @@ public class Main {
 
         HeavenlyBody jupiter = new Planet("Jupiter", 4332);
         solarSystem.put(temp.getName(), temp);
-        planets.add(temp);
+        planets.add(jupiter);
 
         tempMoon = new Moon("Io", 1.8);
         solarSystem.put(tempMoon.getName(), tempMoon);
@@ -95,7 +95,7 @@ public class Main {
             System.out.println("\t" + moon.getName());
         }
 
-        HeavenlyBody pluto = new Planet("Pluto", 842);
+        HeavenlyBody pluto = new DwarfPlanet("Pluto", 842);
         planets.add(pluto);
 
         System.out.println("Planets Again");
@@ -108,17 +108,25 @@ public class Main {
         Set<HeavenlyBody> testSet = new HashSet<>();
         testSet.add(jupiter);
         testSet.add(new Moon("Jupiter", 65435.1));
+        testSet.add(new Moon("Jupiter", 75435.1));
 
         for(HeavenlyBody m : testSet){
             System.out.println(m);
         }
 
-        System.out.println(pluto.equals(new Planet("Pluto", 25396123)));
-        System.out.println((new Planet("Pluto", 76324)).equals(pluto));
-        System.out.println(pluto.equals(new Moon("Pluto", 25396123)));
-        System.out.println((new Moon("Pluto", 76324)).equals(pluto));
         for(HeavenlyBody m : jupiter.getSatellites()){
             System.out.println("Type: " + m.getBodyType() + " Name: " + m.getName() + " Orbital Period: " + m.getOrbitalPeriod());
         }
+        System.out.println();
+        for(HeavenlyBody b : planets){
+            System.out.println(b);
+        }
+        System.out.println();
+        HeavenlyBody earth1 = new Planet("Earth", 365);
+        HeavenlyBody earth2 = new Planet("Earth", 365);
+        System.out.println(earth1.equals(earth2));
+        System.out.println(earth2.equals(earth1));
+        System.out.println(earth1.equals(pluto));
+        System.out.println(pluto.equals(earth1));
     }
 }
