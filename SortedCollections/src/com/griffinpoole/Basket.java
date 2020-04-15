@@ -36,6 +36,10 @@ public class Basket {
         return Collections.unmodifiableMap(list);
     }
 
+    public String getName() {
+        return name;
+    }
+
     @Override
     public String toString() {
         String s = "\nShopping basket " + name + " contains " + list.size() + (list.size() == 1 ? " item\n" : " items\n");

@@ -60,12 +60,17 @@ public class MainChallenge {
 
         reserveItem(griffsBasket, "cup", 4);
         reserveItem(griffsBasket, "bread", 1);
+        reserveItem(griffsBasket, "bread", 54);
+        reserveItem(scottsBakset, "bread", 46);
+        reserveItem(scottsBakset, "bread", 45);
         System.out.println(griffsBasket);
+        System.out.println(scottsBakset);
         System.out.println(stockList);
 
         System.out.println();
 
         checkout(griffsBasket);
+        checkout(scottsBakset);
         System.out.println();
 
         System.out.println(griffsBasket);
@@ -102,7 +107,8 @@ public class MainChallenge {
 
     public static void checkout(Basket basket){
         double totalCost = 0;
-        System.out.println("Checking out:");
+        System.out.println();
+        System.out.println("Checking out " + basket.getName() + ":");
         for(Map.Entry entry : basket.Items().entrySet()){
             StockItem item = (StockItem) entry.getKey();
             Integer inBasket = (Integer) entry.getValue();
@@ -115,7 +121,8 @@ public class MainChallenge {
             System.out.println("============================================");
             totalCost += itemizedPrice;
         }
-        System.out.println("Final Total: " + totalCost);
+        System.out.println("Final Total: " + String.format("%.2f", totalCost));
+        System.out.println();
         basket.clear();
     }
 }
