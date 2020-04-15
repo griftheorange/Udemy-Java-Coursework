@@ -15,7 +15,7 @@ public class StockList {
         if(item != null){
             StockItem inStock = list.getOrDefault(item.getName(), item);
             if(inStock != item){
-                item.adjustStock(inStock.quantityInStock());
+                item.reserveStock(inStock.quantityInStock());
             }
 
             list.put(item.getName(), item);
@@ -24,10 +24,19 @@ public class StockList {
         return 0;
     }
 
-    public int sellStock(String item, int quantity){
+    public int reserveStock(String item, int quantity){
         StockItem inStock = list.getOrDefault(item, null);
-        if((inStock != null) && (inStock.quantityInStock() >= quantity) && (quantity > 0)){
-            inStock.adjustStock(-quantity);
+        if((inStock != null) && ((inStock.quantityInStock() - inStock.quantityReserved()) >= quantity) && (quantity > 0)){
+            inStock.reserveStock(quantity);
+            return quantity;
+        }
+        return 0;
+    }
+
+    public int adjustStock(String item, int quantity){
+        StockItem inStock = list.getOrDefault(item, null);
+        if((inStock != null) && ((inStock.quantityInStock() + quantity) >= 0)){
+            inStock.adjustStock(quantity);
             return quantity;
         }
         return 0;

@@ -13,6 +13,12 @@ public class Basket {
         this.list = new TreeMap<>();
     }
 
+    public int adjustReserved(StockItem stockItem, int quantity){
+        int currentReserve = this.list.get(stockItem);
+        this.list.put(stockItem, currentReserve + quantity);
+        return quantity;
+    }
+
     public int addToBasket(StockItem item, int quantity){
         if((item != null) && (quantity > 0)){
             int inBasket = list.getOrDefault(item, 0);
@@ -20,6 +26,10 @@ public class Basket {
             return inBasket;
         }
         return 0;
+    }
+
+    public void clear(){
+        this.list.clear();
     }
 
     public Map<StockItem, Integer> Items(){
@@ -31,7 +41,7 @@ public class Basket {
         String s = "\nShopping basket " + name + " contains " + list.size() + (list.size() == 1 ? " item\n" : " items\n");
         double totalCost = 0d;
         for(Map.Entry<StockItem, Integer> item : list.entrySet()){
-            s = s + item.getKey() + ". " + item.getValue() + " purchased\n";
+            s = s + item.getKey() + ". " + item.getValue() + " reserved\n";
             totalCost += item.getKey().getPrice() * item.getValue();
         }
         return s + "Total cost " + totalCost;

@@ -1,6 +1,8 @@
 package com.griffinpoole;
 
-public class Main {
+import java.util.Map;
+
+public class MainChallenge {
     private static StockList stockList = new StockList();
 
     public static void main(String[] args) {
@@ -31,6 +33,7 @@ public class Main {
         System.out.println(stockList);
 
         Basket griffsBasket = new Basket("Griff");
+        Basket scottsBakset = new Basket("Scott");
         reserveItem(griffsBasket, "car", 1);
         System.out.println(griffsBasket);
 
@@ -38,22 +41,49 @@ public class Main {
         System.out.println(griffsBasket);
 
         reserveItem(griffsBasket, "car", 1);
+        reserveItem(scottsBakset, "car", 1);
+        reserveItem(scottsBakset, "cup", 1);
         System.out.println(griffsBasket);
+        System.out.println(scottsBakset);
 
         reserveItem(griffsBasket, "spanner", 5);
         System.out.println(griffsBasket);
 
         reserveItem(griffsBasket, "juice", 4);
-        reserveItem(griffsBasket, "cup", 12);
+        System.out.println(griffsBasket);
+        unreserveItem(griffsBasket, "juice", 6);
+        System.out.println(griffsBasket);
+        unreserveItem(griffsBasket, "juice", 2);
+        System.out.println(griffsBasket);
+        unreserveItem(griffsBasket, "cup", 20);
+        System.out.println(griffsBasket);
+
+        reserveItem(griffsBasket, "cup", 4);
         reserveItem(griffsBasket, "bread", 1);
         System.out.println(griffsBasket);
         System.out.println(stockList);
 
-//        temp = new StockItem("pen", 1.12);
-//        stockList.Items().put(temp.getName(), temp);
-        stockList.Items().get("car").adjustStock(2000);
-        System.out.println(stockList);
+        System.out.println();
 
+        checkout(griffsBasket);
+        System.out.println();
+
+        System.out.println(griffsBasket);
+        System.out.println(scottsBakset);
+        System.out.println(stockList);
+    }
+
+
+    public static int unreserveItem(Basket basket, String item, int quantity){
+        StockItem stockItem = stockList.get(item);
+        if(basket.Items().containsKey(stockItem)){
+            int quantReserved = basket.Items().get(stockItem);
+            if(quantity <= quantReserved){
+                stockItem.unreserveStock(quantity);
+                return basket.adjustReserved(stockItem, -1*quantity);
+            }
+        }
+        return 0;
     }
 
     public static int reserveItem(Basket basket, String item, int quantity){
@@ -70,5 +100,22 @@ public class Main {
         return 0;
     }
 
-
+    public static void checkout(Basket basket){
+        double totalCost = 0;
+        System.out.println("Checking out:");
+        for(Map.Entry entry : basket.Items().entrySet()){
+            StockItem item = (StockItem) entry.getKey();
+            Integer inBasket = (Integer) entry.getValue();
+            stockList.adjustStock(item.getName(), -1*inBasket);
+            item.unreserveStock(inBasket);
+            System.out.print(item);
+            System.out.print(" #: " + inBasket);
+            double itemizedPrice = item.getPrice()*inBasket;
+            System.out.println(" Total: " + itemizedPrice);
+            System.out.println("============================================");
+            totalCost += itemizedPrice;
+        }
+        System.out.println("Final Total: " + totalCost);
+        basket.clear();
+    }
 }
