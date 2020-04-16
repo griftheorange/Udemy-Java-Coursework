@@ -24,16 +24,40 @@
 <!--    <Button text="Button Five" GridPane.rowIndex="2" GridPane.columnIndex="0"/>-->
 <!--</GridPane>-->
 
+<!--<?import javafx.scene.layout.HBox?>-->
+<!--<HBox fx:controller="sample.Controller"-->
+<!--      xmlns:fx="http://javafx.com/fxml"-->
+<!--      alignment="bottom_center"-->
+<!--      style="-fx-border-color: red; -fx-border-width: 3; -fx-border-style: dashed"-->
+<!--      spacing="10">-->
+<!--    <padding>-->
+<!--        <Insets bottom="10" right="10"/>-->
+<!--    </padding>-->
+<!--    <Button text="Okay" prefWidth="90"/>-->
+<!--    <Button text="Cancel" prefWidth="90"/>-->
+<!--    <Button text="Help" prefWidth="90"/>-->
+<!--</HBox>-->
+
 <?import javafx.scene.layout.HBox?>
-<HBox fx:controller="sample.Controller"
-      xmlns:fx="http://javafx.com/fxml"
-      alignment="bottom_center"
-      style="-fx-border-color: red; -fx-border-width: 3; -fx-border-style: dashed"
-      spacing="10">
-    <padding>
-        <Insets bottom="10" right="10"/>
-    </padding>
-    <Button text="Okay" prefWidth="90"/>
-    <Button text="Cancel" prefWidth="90"/>
-    <Button text="Help" prefWidth="90"/>
-</HBox>
+<?import javafx.scene.layout.BorderPane?>
+<BorderPane fx:controller="sample.Controller"
+            xmlns:fx="http://javafx.com/fxml">
+    <top>
+        <Label text="This label is in the top position"
+               alignment="CENTER"
+               BorderPane.alignment="center"
+               style="-fx-border-color: blue; -fx-border-width: 3; -fx-border-style: dashed"/>
+    </top>
+    <bottom>
+        <HBox spacing="20"
+              style="-fx-border-color: red; -fx-border-width: 3; -fx-border-style: dashed"
+              alignment="CENTER">
+            <padding>
+                <Insets bottom="10"/>
+            </padding>
+            <Button text="Okay" prefWidth="90"/>
+            <Button text="Cancel" prefWidth="90"/>
+            <Button text="Help" prefWidth="90"/>
+        </HBox>
+    </bottom>
+</BorderPane>
