@@ -1,7 +1,10 @@
 package com.griffinpoole.todolist;
 
 import com.griffinpoole.todolist.datamodel.TodoItem;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextArea;
@@ -16,9 +19,10 @@ public class Controller {
 
     @FXML
     private ListView todoListView;
-
     @FXML
     private TextArea descriptionTextArea;
+    @FXML
+    private Label deadlineLabel;
 
     public void initialize(){
         TodoItem item1 = new TodoItem("Mail birthday card", "Buy a 30th birthday card for John", LocalDate.of(2020, Month.JULY, 15));
@@ -34,17 +38,19 @@ public class Controller {
         todoItems.add(item4);
         todoItems.add(item5);
 
+        todoListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TodoItem>() {
+            @Override
+            public void changed(ObservableValue<? extends TodoItem> observable, TodoItem oldValue, TodoItem newValue) {
+                if(newValue != null){
+                    TodoItem item = (TodoItem) todoListView.getSelectionModel().getSelectedItem();
+                    descriptionTextArea.setText(item.getDetails());
+                    deadlineLabel.setText(item.getDeadLine().toString());
+                }
+            }
+        });
+
         todoListView.getItems().setAll(todoItems);
         todoListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-    }
-
-    @FXML
-    public void handleClickListView(){
-        TodoItem item = (TodoItem) todoListView.getSelectionModel().getSelectedItem();
-        StringBuilder sb = new StringBuilder(item.getDetails());
-        sb.append("\n\n\n\n");
-        sb.append("Due: ");
-        sb.append(item.getDeadLine().toString());
-        descriptionTextArea.setText(sb.toString());
+        todoListView.getSelectionModel().selectFirst();
     }
 }
