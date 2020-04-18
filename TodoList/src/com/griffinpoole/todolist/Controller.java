@@ -1,6 +1,10 @@
 package com.griffinpoole.todolist;
 
 import com.griffinpoole.todolist.datamodel.TodoItem;
+import javafx.fxml.FXML;
+import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TextArea;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -9,6 +13,12 @@ import java.util.List;
 
 public class Controller {
     private List<TodoItem> todoItems;
+
+    @FXML
+    private ListView todoListView;
+
+    @FXML
+    private TextArea descriptionTextArea;
 
     public void initialize(){
         TodoItem item1 = new TodoItem("Mail birthday card", "Buy a 30th birthday card for John", LocalDate.of(2020, Month.JULY, 15));
@@ -23,5 +33,18 @@ public class Controller {
         todoItems.add(item3);
         todoItems.add(item4);
         todoItems.add(item5);
+
+        todoListView.getItems().setAll(todoItems);
+        todoListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+    }
+
+    @FXML
+    public void handleClickListView(){
+        TodoItem item = (TodoItem) todoListView.getSelectionModel().getSelectedItem();
+        StringBuilder sb = new StringBuilder(item.getDetails());
+        sb.append("\n\n\n\n");
+        sb.append("Due: ");
+        sb.append(item.getDeadLine().toString());
+        descriptionTextArea.setText(sb.toString());
     }
 }

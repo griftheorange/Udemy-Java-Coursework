@@ -3,5 +3,4 @@ module TodoList {
     requires javafx.controls;
 
     opens com.griffinpoole.todolist;
-
 }
