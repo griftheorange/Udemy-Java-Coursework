@@ -1,10 +1,14 @@
 package com.griffinpoole.todolist;
 
+import com.griffinpoole.todolist.datamodel.TodoData;
+import com.griffinpoole.todolist.datamodel.TodoItem;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class Main extends Application {
 
@@ -16,6 +20,14 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+    @Override
+    public void stop() throws Exception {
+        try {
+            TodoData.getInstance().storeTodoItems();
+        } catch(IOException e){
+            System.out.println(e.getMessage());
+        }
+    }
 
     public static void main(String[] args) {
         launch(args);
