@@ -33,7 +33,8 @@
     </left>
     <center>
         <VBox style="-fx-background-color: white;">
-            <TextArea fx:id="descriptionTextArea" editable="false" VBox.vgrow="ALWAYS"/>
+            <TextArea fx:id="descriptionTextArea" editable="false" VBox.vgrow="ALWAYS"
+                      wrapText="true"/>
             <HBox>
                 <padding>
                     <Insets left="5"/>
