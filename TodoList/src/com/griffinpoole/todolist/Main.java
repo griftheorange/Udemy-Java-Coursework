@@ -1,7 +1,6 @@
 package com.griffinpoole.todolist;
 
 import com.griffinpoole.todolist.datamodel.TodoData;
-import com.griffinpoole.todolist.datamodel.TodoItem;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
