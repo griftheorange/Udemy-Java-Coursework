@@ -12,7 +12,7 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
-<BorderPane fx:controller="com.griffinpoole.todolist.Controller"
+<BorderPane fx:id="mainBorderPane" fx:controller="com.griffinpoole.todolist.Controller"
             xmlns:fx="http://javafx.com/fxml">
     <top>
         <MenuBar>
@@ -26,6 +26,7 @@
         </MenuBar>
     </top>
     <left>
+<!--        Need to add Title block to this somehow-->
         <ListView fx:id="todoListView">
 
         </ListView>
