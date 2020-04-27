@@ -27,7 +27,7 @@
     </top>
     <left>
 <!--        Need to add Title block to this somehow-->
-        <ListView fx:id="todoListView">
+        <ListView fx:id="todoListView" onKeyPressed="#handleKeyPressed">
 
         </ListView>
     </left>

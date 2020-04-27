@@ -9,6 +9,8 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.util.Callback;
@@ -23,7 +25,7 @@ public class Controller {
     private List<TodoItem> todoItems;
 
     @FXML
-    private ListView todoListView;
+    private ListView<TodoItem> todoListView;
     @FXML
     private TextArea descriptionTextArea;
     @FXML
@@ -53,7 +55,7 @@ public class Controller {
         deleteMenuItem.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                TodoItem item = (TodoItem) todoListView.getSelectionModel().getSelectedItem();
+                TodoItem item = todoListView.getSelectionModel().getSelectedItem();
                 deleteItem(item);
             }
         });
@@ -62,7 +64,7 @@ public class Controller {
             @Override
             public void changed(ObservableValue<? extends TodoItem> observable, TodoItem oldValue, TodoItem newValue) {
                 if(newValue != null){
-                    TodoItem item = (TodoItem) todoListView.getSelectionModel().getSelectedItem();
+                    TodoItem item = todoListView.getSelectionModel().getSelectedItem();
                     descriptionTextArea.setText(item.getDetails());
                     DateTimeFormatter df = DateTimeFormatter.ofPattern("MMMM d, yyyy");
                     deadlineLabel.setText(df.format(item.getDeadLine()));
@@ -134,6 +136,16 @@ public class Controller {
             todoListView.getSelectionModel().select(newItem);
         }
 
+    }
+
+    @FXML
+    public void handleKeyPressed(KeyEvent e){
+        TodoItem selectedItem = todoListView.getSelectionModel().getSelectedItem();
+        if(selectedItem != null){
+            if(e.getCode().equals(KeyCode.DELETE)){
+                deleteItem(selectedItem);
+            }
+        }
     }
 
     public void deleteItem(TodoItem item){
