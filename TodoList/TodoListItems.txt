@@ -1,6 +1,4 @@
-Mail birthday card	Buy a 30th birthday card for John	15-07-2020
-Finish design proposal for FZ	Promised FZ I'd storyboard the game by Friday	30-04-2020
-Feed Willow and Maple	Need to feed them vegetables, all the vegetables. Growing Guinea Pigs need a whole lot of vegetables	20-04-2020
-Clean room	Dishes piling up again, need to bus them downstairs	15-12-2020
-a long item	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pharetra vel turpis nunc eget lorem dolor sed viverra ipsum. Nibh tortor id aliquet lectus proin nibh. Fermentum posuere urna nec tincidunt praesent. Quis imperdiet massa tincidunt nunc. Quis commodo odio aenean sed adipiscing diam. Mauris vitae ultricies leo integer malesuada nunc vel risus. Aenean sed adipiscing diam donec adipiscing tristique risus nec. Ac tortor vitae purus faucibus ornare suspendisse sed nisi. In massa tempor nec feugiat nisl. Congue mauris rhoncus aenean vel elit scelerisque mauris pellentesque. Orci sagittis eu volutpat odio facilisis mauris sit amet. Posuere urna nec tincidunt praesent semper feugiat nibh sed pulvinar. Massa tincidunt dui ut ornare lectus sit amet est.	29-04-2020
-Due Tomorrow	vcgdgadf	25-04-2020
+Java Server Project	Complete a backend in java to mimic backend for SeisMix but in a more industry standard language	14-04-2021
+Complete TodoList App in Java	Complete a Basic Resume TodoList in Java	07-05-2020
+Schedule Mock Tech Interview	Schedule mock tech interview through flatiron	28-04-2020
+Settup Auto-Fill for Python Data Analytics Project	In Python file, Data-Analytics project. Complete work to where on boot-up, python file reads and plots data from resource excel/pickle, prompts user for CSV containing new transaction info, auto-fills and auto updates, then saves on close or key command	08-05-2020
