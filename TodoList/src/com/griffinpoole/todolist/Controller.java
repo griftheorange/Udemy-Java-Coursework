@@ -116,7 +116,7 @@ public class Controller {
         Dialog<ButtonType> dialog = new Dialog<>();
         dialog.initOwner(mainBorderPane.getScene().getWindow());
         dialog.setTitle("A New Todo Item");
-        dialog.setHeaderText("The Dialog's header text");
+        dialog.setHeaderText("New Todo Item");
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("todoItemDialog.fxml"));
         try {

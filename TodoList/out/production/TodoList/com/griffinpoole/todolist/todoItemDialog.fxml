@@ -9,7 +9,7 @@
 <DialogPane fx:controller="com.griffinpoole.todolist.DialogController"
             xmlns:fx="http://javafx.com/fxml">
      <headerText>
-         We could put instructions here
+         Please fill in the details of your Todo Item
      </headerText>
     <content>
         <GridPane vgap="10" hgap="10">

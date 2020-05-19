@@ -1,4 +1,3 @@
 Java Server Project	Complete a backend in java to mimic backend for SeisMix but in a more industry standard language	14-04-2021
 Complete TodoList App in Java	Complete a Basic Resume TodoList in Java	07-05-2020
 Schedule Mock Tech Interview	Schedule mock tech interview through flatiron	28-04-2020
-Settup Auto-Fill for Python Data Analytics Project	In Python file, Data-Analytics project. Complete work to where on boot-up, python file reads and plots data from resource excel/pickle, prompts user for CSV containing new transaction info, auto-fills and auto updates, then saves on close or key command	08-05-2020
