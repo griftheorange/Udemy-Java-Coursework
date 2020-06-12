@@ -5,10 +5,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.GridPane;
-import javafx.stage.DirectoryChooser;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
-
+import java.awt.Desktop;
 import java.io.File;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.List;
 
 public class Controller {
 
@@ -18,6 +23,8 @@ public class Controller {
     private Button button4;
     @FXML
     private GridPane gridpane;
+    @FXML
+    private WebView webview;
 
     public void initialize() {
         button4.setEffect(new DropShadow());
@@ -25,11 +32,20 @@ public class Controller {
 
     @FXML
     public void handleClick() {
-//        FileChooser chooser = new FileChooser();
-        DirectoryChooser chooser = new DirectoryChooser();
-        File file = chooser.showDialog(gridpane.getScene().getWindow());
+        FileChooser chooser = new FileChooser();
+//        chooser.setTitle("Save Application File");
+        chooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Text", "*.txt"),
+                new FileChooser.ExtensionFilter("PDF", "*.pdf"),
+                new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.png", "*.gif"),
+                new FileChooser.ExtensionFilter("All Files", "*.*")
+        );
+
+        List<File> file = chooser.showOpenMultipleDialog(gridpane.getScene().getWindow());
         if(file != null){
-            System.out.println(file.getPath());
+            for(int i = 0; i < file.size(); i++){
+                System.out.println(file.get(i).getPath());
+            }
         } else {
             System.out.println("Chooser was cancelled");
         }
@@ -45,6 +61,12 @@ public class Controller {
     public void handleMouseExit(){
         label.setScaleX(1.0);
         label.setScaleY(1.0);
+    }
+
+    @FXML
+    public void handleLinkClick(){
+        WebEngine engine = webview.getEngine();
+        engine.load("http://griffinpoole.com");
     }
 
 }
