@@ -1,5 +1,7 @@
 package com.griffinpoole;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -10,6 +12,27 @@ import java.util.Set;
  */
 public class Locations implements Map<Integer, Location> {
     private static Map<Integer, Location> locations = new HashMap<Integer, Location>();
+
+    public static void main(String[] args) throws IOException {
+        try(FileWriter locFile = new FileWriter("locations.txt")){
+            for(Location location : locations.values()){
+                locFile.write(location.getLocationID() + ',' + location.getDescription() + '\n');
+            }
+        }
+//        FileWriter locFile = null;
+//        try {
+//            locFile = new FileWriter("locations.txt");
+//            for(Location location : locations.values()){
+//                locFile.write(location.getLocationID() + "," + location.getDescription() + "\n");
+//            }
+//        } finally {
+//            System.out.println("In finally block");
+//            if(locFile != null) {
+//                System.out.println("Attempting to close locFile");
+//                locFile.close();
+//            }
+//        }
+    }
 
     static {
         Map<String, Integer> tempExit = new HashMap<String, Integer>();
@@ -39,8 +62,8 @@ public class Locations implements Map<Integer, Location> {
         tempExit.put("S", 1);
         tempExit.put("W", 2);
         locations.put(5, new Location(5, "You are in the forest",tempExit));
-
     }
+
     @Override
     public int size() {
         return locations.size();
