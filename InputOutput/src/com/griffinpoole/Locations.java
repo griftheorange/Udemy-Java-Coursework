@@ -1,9 +1,6 @@
 package com.griffinpoole;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 
 /**
@@ -13,8 +10,8 @@ public class Locations implements Map<Integer, Location> {
     private static Map<Integer, Location> locations = new HashMap<Integer, Location>();
 
     public static void main(String[] args) throws IOException {
-        try(FileWriter locFile = new FileWriter("locations.txt");
-            FileWriter dirFile = new FileWriter("directions.txt")){
+        try(BufferedWriter locFile = new BufferedWriter(new FileWriter("locations.txt"));
+            BufferedWriter dirFile = new BufferedWriter(new FileWriter("directions.txt"))){
             for(Location location : locations.values()){
                 locFile.write(location.getLocationID() + "," + location.getDescription() + "\n");
                 for(String direction : location.getExits().keySet()){
@@ -25,7 +22,7 @@ public class Locations implements Map<Integer, Location> {
     }
 
     static {
-        try(Scanner locScanner = new Scanner(new FileReader("locations_big.txt"));
+        try(Scanner locScanner = new Scanner(new BufferedReader(new FileReader("locations_big.txt")));
             Scanner dirScanner = new Scanner(new BufferedReader(new FileReader("directions_big.txt")))){
 
             locScanner.useDelimiter(",");
